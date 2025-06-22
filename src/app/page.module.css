@@ -101,9 +101,6 @@
   cursor: pointer;
   line-height: 1.5;
 }
-.button:hover {
-  background-color: var(--color-primary-red);
-}
 
 @media (min-width: 768px) {
   .page {
@@ -201,5 +198,8 @@
   }
   .input {
     margin-bottom: 1rem;
+  }
+  .button:hover {
+    background: linear-gradient(90deg, #ff6a3a 0%, #ff527b 100%);
   }
 }

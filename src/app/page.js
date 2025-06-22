@@ -53,6 +53,7 @@ export default function Home() {
               className={styles.input}
               required
             />
+
             <button type="submit" className={styles.button}>
               Subscribe to monthly newsletter
             </button>
