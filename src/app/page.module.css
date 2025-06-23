@@ -87,6 +87,10 @@
   line-height: 1.5;
   margin-bottom: 1.5rem;
 }
+.inputError {
+  border-color: var(--color-primary-red);
+  background-color: #ffeaea;
+}
 
 .button {
   width: 100%;
@@ -100,6 +104,12 @@
   border-radius: 0.5rem;
   cursor: pointer;
   line-height: 1.5;
+}
+
+/* {Submit Success} */
+.successMessage {
+  padding: 9.313rem 1.5rem 4.375rem 1.5rem; /* mobile: 149px 24px 70px 24px */
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -145,6 +155,9 @@
   }
   .input {
     margin-bottom: 1rem;
+  }
+  .successMessage {
+    padding: 12rem 3rem 6rem 3rem; /* example for tablet, adjust as needed */
   }
 }
 
@@ -201,5 +214,8 @@
   }
   .button:hover {
     background: linear-gradient(90deg, #ff6a3a 0%, #ff527b 100%);
+  }
+  .successMessage {
+    padding: 14rem 6rem 8rem 6rem; /* example for desktop, adjust as needed */
   }
 }
