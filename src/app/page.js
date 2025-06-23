@@ -105,31 +105,9 @@ export default function Home() {
             </>
           ) : (
             <div className={styles.successMessage}>
-              <MdCheckCircle
-                style={{
-                  color: "var(--color-primary-red)",
-                  fontSize: "4rem",
-                  marginBottom: "2rem",
-                }}
-              />
-              <h1
-                style={{
-                  color: "var(--color-blue-700)",
-                  fontSize: "2.5rem",
-                  marginBottom: "2rem",
-                }}
-              >
-                Thanks for subscribing!
-              </h1>
-              <p
-                style={{
-                  fontSize: "1rem",
-                  color: "var(--color-blue-800)",
-                  fontWeight: "400",
-                  lineHeight: "1.5",
-                  marginBottom: "19.93rem",
-                }}
-              >
+              <MdCheckCircle className={styles.successIcon} />
+              <h1 className={styles.successTitle}>Thanks for subscribing!</h1>
+              <p className={styles.successDescription}>
                 A confirmation email has been sent to <strong>{email}</strong>
                 .com. Please open it and click the button inside to confirm your
                 subscription
