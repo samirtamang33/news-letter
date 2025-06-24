@@ -24,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${success ? styles.pageSuccess : ""}`}>
       <main className={styles.main}>
         {!success && (
           <picture className={styles.imageContainer}>
@@ -112,7 +112,15 @@ export default function Home() {
                 .com. Please open it and click the button inside to confirm your
                 subscription
               </p>
-              <button type="submit" className={styles.button}>
+              <button
+                type="submit"
+                className={styles.button}
+                onClick={() => {
+                  setSuccess(false);
+                  setEmail("");
+                  setError("");
+                }}
+              >
                 Dismiss message
               </button>
             </div>

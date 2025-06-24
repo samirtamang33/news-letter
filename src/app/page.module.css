@@ -108,7 +108,8 @@
 
 /* {Submit Success} */
 .successMessage {
-  padding: 9.313rem 1.5rem 4.375rem 1.5rem; /* mobile: 149px 24px 70px 24px */
+  padding: 9.313rem 1.5rem 4.375rem 1.5rem;
+  box-sizing: border-box;
 }
 .successIcon {
   color: var(--color-primary-red);
@@ -129,6 +130,10 @@
   line-height: 1.5;
   margin-bottom: 19.93rem; /* 319px */
 }
+.successMessage .button {
+  background: linear-gradient(90deg, #ff6a3a 0%, #ff527b 100%);
+  box-shadow: 0 4px 24px 0 rgba(255, 106, 58, 0.25);
+}
 
 @media (min-width: 768px) {
   .page {
@@ -136,6 +141,12 @@
     border-radius: 2rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     padding: 2.5rem;
+  }
+
+  .pageSuccess {
+    max-width: 504px !important;
+    border-radius: 2.25rem !important;
+    padding: 1.5rem !important;
   }
 
   .main {
@@ -194,6 +205,13 @@
     padding: 2rem;
   }
 
+  .pageSuccess {
+    max-width: 504px !important;
+    border-radius: 2.25rem !important;
+    box-shadow: none !important;
+    padding: 1.5rem !important;
+  }
+
   .main {
     flex-direction: row;
     align-items: center;
@@ -239,10 +257,7 @@
   .button:hover {
     background: linear-gradient(90deg, #ff6a3a 0%, #ff527b 100%);
   }
-  .successMessage {
-    border-radius: 2.25rem;
-    padding: 1.5rem;
-  }
+
   .successTitle {
     font-size: 3.5rem;
   }
