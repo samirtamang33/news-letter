@@ -10,17 +10,22 @@ export default function Home() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateEmail(email)) {
-      setError("Please enter a valid email address.");
+    const isValid = validateEmail(email);
+
+    if (!isValid) {
+      setError("Valid email required");
       setSuccess(false);
-    } else {
-      setError("");
-      setSuccess(true);
+      return;
     }
+
+    setError("");
+    setSuccess(true);
   };
 
   return (
@@ -69,9 +74,21 @@ export default function Home() {
                 </li>
               </ul>
               <form className={styles.form} onSubmit={handleSubmit}>
-                <label className={styles.label}>
-                  <span className={styles.labelText}>Email address</span>
-                </label>
+                <div className={styles.labelRow}>
+                  <label className={styles.label} htmlFor="email">
+                    <span className={styles.labelText}>Email address</span>
+                  </label>
+                  {error && (
+                    <span
+                      className={styles.errorLabelText}
+                      id="email-error"
+                      role="alert"
+                    >
+                      {error}
+                    </span>
+                  )}
+                </div>
+
                 <input
                   id="email"
                   name="email"
@@ -81,21 +98,19 @@ export default function Home() {
                     error ? styles.inputError : ""
                   }`}
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (error) setError(""); // Clear error when typing
+                  }}
                   required
+                  aria-invalid={!!error}
+                  aria-describedby={error ? "email-error" : undefined}
+                  onBlur={() => {
+                    if (email && !validateEmail(email)) {
+                      setError("Valid email required");
+                    }
+                  }}
                 />
-                {/* Email Error */}
-                {error && (
-                  <span
-                    style={{
-                      color: "var(--color-primary-red)",
-                      fontSize: "0.9rem",
-                      marginBottom: "1rem",
-                    }}
-                  >
-                    {error}
-                  </span>
-                )}
 
                 <button type="submit" className={styles.button}>
                   Subscribe to monthly newsletter
@@ -108,8 +123,8 @@ export default function Home() {
               <MdCheckCircle className={styles.successIcon} />
               <h1 className={styles.successTitle}>Thanks for subscribing!</h1>
               <p className={styles.successDescription}>
-                A confirmation email has been sent to <strong>{email}</strong>
-                .com. Please open it and click the button inside to confirm your
+                A confirmation email has been sent to <strong>{email}</strong>{" "}
+                Please open it and click the button inside to confirm your
                 subscription
               </p>
               <button

@@ -67,12 +67,25 @@
   flex-direction: column;
 }
 
-.label {
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 0.3rem;
+}
+
+.labelText {
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.5;
   color: var(--color-blue-800);
-  margin-bottom: 0.5rem;
+}
+
+.errorLabelText {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-primary-red);
 }
 
 .input {
@@ -86,10 +99,6 @@
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 1.5rem;
-}
-.inputError {
-  border-color: var(--color-primary-red);
-  background-color: #ffeaea;
 }
 
 .button {
